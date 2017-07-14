@@ -1,12 +1,14 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from web_app import models
-
+from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 
 def hello(request):
     return HttpResponse("Hello")
 
+
+@csrf_exempt
 def add_data(request):
     # Check for POST request
     if request.method == 'POST':
