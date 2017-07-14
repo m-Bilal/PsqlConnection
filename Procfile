@@ -1,1 +1,1 @@
-web: gunicorn uniplay.wsgi --log-file -
+web: gunicorn PsqlConnection.wsgi --log-file -
