@@ -72,6 +72,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'PsqlConnection.wsgi.application'
 
+ALLOWED_HOSTS = ['greve-gerard-69219.herokuapp.com']
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
