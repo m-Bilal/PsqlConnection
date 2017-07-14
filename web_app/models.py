@@ -8,4 +8,4 @@ class Vehicle(models.Model):
     lattitude = models.FloatField()
     longitude = models.FloatField()
     vehicle_type = models.IntegerField()
-
+    name = models.CharField(max_length=100)
