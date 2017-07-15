@@ -20,5 +20,6 @@ from web_app import views as web_app_views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^hello/$', web_app_views.hello),
-    url(r'^add/$', web_app_views.add_data)
+    url(r'^add/$', web_app_views.add_data),
+    url(r'^get/$', web_app_views.get_all),
 ]

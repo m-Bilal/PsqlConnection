@@ -72,7 +72,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'PsqlConnection.wsgi.application'
 
-ALLOWED_HOSTS = ['greve-gerard-69219.herokuapp.com']
+ALLOWED_HOSTS = ['greve-gerard-69219.herokuapp.com',
+                 '127.0.0.1']
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
@@ -81,16 +82,16 @@ db_from_env = dj_database_url.config()
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'db_name',
-        'USER': 'db_user',
-        'PASSWORD': 'db_user_password',
-        'HOST': '',
-        'PORT': '',
+        'NAME': 'testdb',
+        'USER': 'postgres',
+        'PASSWORD': 'bilalbilal',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
 # Read db credentials from env variables
-DATABASES['default'].update(db_from_env)
+#DATABASES['default'].update(db_from_env)
 
 
 # Password validation
