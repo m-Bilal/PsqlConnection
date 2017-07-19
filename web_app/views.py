@@ -5,6 +5,9 @@ from django.views.decorators.csrf import csrf_exempt
 from web_app.models import Vehicle
 from django.core import serializers
 from web_app import serializers as web_app_serializers
+from collections import defaultdict
+from django.db.models.query import QuerySet
+import json
 # Create your views here.
 
 def hello(request):
@@ -23,10 +26,9 @@ def add_data(request):
         return HttpResponse('failed')
 
 def get_all(request):
-    a = dict()
     json_response = serializers.serialize('json', Vehicle.objects.all())
-    data = {'vehicles': json_response}
-    vehilces = web_app_serializers.VehicleSerializer()
-    res = Vehicle.objects.all().values()
-    return HttpResponse(json_response)
+    a = dict()
+    a['value1'] = 1
+    a['value2'] = 2
+    return HttpResponse('{\"values\":' + json_response + '}', content_type='application/json')
 
