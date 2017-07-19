@@ -4,6 +4,7 @@ from web_app import models
 from django.views.decorators.csrf import csrf_exempt
 from web_app.models import Vehicle
 from django.core import serializers
+from web_app import serializers as web_app_serializers
 # Create your views here.
 
 def hello(request):
@@ -23,7 +24,9 @@ def add_data(request):
 
 def get_all(request):
     a = dict()
-    vehilces = list(Vehicle.objects.all())
-    json_response = serializers.serialize('xml', Vehicle.objects.all())
+    json_response = serializers.serialize('json', Vehicle.objects.all())
+    data = {'vehicles': json_response}
+    vehilces = web_app_serializers.VehicleSerializer()
+    res = Vehicle.objects.all().values()
     return HttpResponse(json_response)
 
